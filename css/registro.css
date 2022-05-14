@@ -1,4 +1,7 @@
 body {
+    background-image: url(fundo.webp);  
+    background-repeat:no-repeat;
+    background-size:cover;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -119,7 +122,7 @@ body {
     margin-left: 30%;
 }
 
-.divLogin {
+.divRegistro {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,6 +172,6 @@ button:hover {
 
 h1 {
     display: flex;
-    margin-left: 35%;
+    margin-left: 30%;
     align-items: center;
 }
