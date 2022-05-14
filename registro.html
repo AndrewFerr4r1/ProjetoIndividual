@@ -16,7 +16,7 @@
     <div class="menu">
         <ul class="menu__list">
             <li class="menu__list">
-                <a href="" class="menu__link">Menu</a>
+                <a href="menu.html" class="menu__link">Menu</a>
             </li><br>
             <li class="menu__list">
                 <a href="login.html" class="menu__link">Login</a>
@@ -31,10 +31,14 @@
             <form action="#">
                 <h1>Registro</h1>
                 <input type="text" placeholder="Nome" id="inputNome">
+                <span id="spanNome" style="color: red;"></span>
                 <input type="text" placeholder="Email" id="inputEmail">
+                <span id="spanEmail" style="color: red;"></span>
                 <input type="text" placeholder="Senha" id="inputSenha">
+                <span id="spanSenha" style="color: red;"></span>
                 <input type="text" placeholder="Confirmar Senha" id="inputConfirmarSenha">
-                <button type="button" class="btEntrar">Registrar</button>
+                <span id="spanConfirmarSenha" style="color: red;"></span>
+                <button type="button" class="btEntrar" onclick="validarRegistro()">Registrar</button>
             </form>
         </div>
         <div class="containerDireita">
@@ -42,5 +46,6 @@
         </div>
     </div>
     <script src="js/menu.js"></script>
+    <script src="js/registro.js"></script>
 </body>
 </html>
