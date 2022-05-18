@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 body {
-    background-image: url(/img/fundoMenu.webp);
-    background-repeat: no-repeat;
-    background-position: top right, center;
-    background-size: cover;
-    background-attachment: fixed;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
     min-height: 100vh;
     font-family: monospace;
-    position: relative;
+    position: relative; 
 }
 
 .navbar {
@@ -129,4 +124,100 @@ h1 {
 
 .menu__link:hover:after {
     width: 100%;
+}
+
+.container {
+    justify-content: flex-start;
+    height: 2000px;
+}
+
+.divImgFundo {
+    height: 100px;
+}
+
+.imgFundo {
+    height: 700px;
+    width: 100%;
+}
+
+
+.textoJogoSurgiu {
+    background-color: rgb(197, 197, 197);
+    height: 500px;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 6px;
+    margin-top: 500px;
+    line-height: 20px;
+    text-align: justify; 
+    align-items: flex-start;
+}
+
+.h1SobreoJogo {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.pSobreoJogo {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin-left: 8%;
+    margin-top: 17%;
+    font-size: 20px;
+    font-family: 'arial';
+}
+
+.sobreImg {
+    margin-top: 10%;
+    margin-left: 30%;
+    height: 350px;
+    border-radius: 6px;
+}
+
+.divData {
+    background-color: white;
+    height: 800px;
+    border-radius: 6px;
+}
+
+.textoDataLancamento {
+    background-color: white;
+}
+
+.h1DataLancamento {
+    position: absolute;
+    margin-left: 40%;
+}
+
+.dataLancamentoPcImg {
+    position: absolute;
+    height: 200px;
+    margin-left: 20%;
+}
+
+.pDataLancamentoPcImg {
+    position: absolute;
+    margin-left: 50%;
+    width: 300px;
+}
+
+.pDataLancamento {
+    position: absolute;
+    margin-left: 50%;
+}
+
+.DataLancamentoImgXbox {
+    position: absolute;
+    height: 350px;
+    margin-left: 78%;
+    border-radius: 6px;
+}
+
+.DataLancamentoImgPlay {
+    position: absolute;
+    height: 330px;
+    margin-left: 78%;
+    border-radius: 6px;
 }
