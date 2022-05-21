@@ -1,0 +1,177 @@
+body {
+    background-image: url(fundo.webp);  
+    background-repeat:no-repeat;
+    background-size:cover;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #fff;
+    min-height: 100vh;
+    font-family: monospace;
+    position: relative;
+}
+
+.btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 2;
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+.btn span{
+    width: 20px;
+    height: 2px;
+    background: #000;
+    display: flex;
+    position: absolute;
+    transition: .3s;
+}
+
+.btn .span1:nth-child(1) {
+    top: 20%;
+}
+
+.btn span:nth-child(2) {
+    top: 80%;
+}
+
+.btn.is-active span {
+    background: #fff;
+} 
+
+.btn.is-active span:nth-child(1) {
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.btn.is-active span:nth-child(2) {
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+.menu {
+    background: #171717;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 100px;
+    z-index: 1;
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu__list {
+    list-style-type: none;
+}
+
+.menu__item:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.menu__link {
+    position: relative;
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 48px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu__link:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 5px;
+    display: inline-flex;
+    background: #c5e600;
+    transition: .3s;
+}
+
+.menu__link:hover:after {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.faixaLaranja {
+    background-color: #f6b061;
+    height: 640px;
+    width: 50vw;
+    border: 2px solid black;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 30%;
+}
+
+.divRegistro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    border-radius: 5px; 
+}
+
+input {
+    display: flex;
+    margin-top: 15%;
+    align-items: center;
+    size: 10px;
+    width: 300px;
+    height: 30px;
+    border: transparent;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(207, 207, 207);
+}
+
+button {
+    display: flex;
+    margin-top: 15%;
+    margin-left: 30%;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    height: 30px;
+    width: 100px;
+    border: none;
+    background-color: rgb(81, 81, 214);
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #f6b061;
+    border: 2px solid #000;
+    color: white;
+    transition: all 0.5s ease-in;
+    transition-delay: 0.05s;
+}
+
+h1 {
+    display: flex;
+    margin-left: 30%;
+    align-items: center;
+}
