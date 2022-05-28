@@ -135,6 +135,12 @@ body {
     padding: 4px;
 }
 
+.textoElenco {
+  display: flex;
+  justify-content: center;
+  margin-left: 30%;
+}
+
 img {
     height: 300px;
     width: 300px;
@@ -149,4 +155,29 @@ img {
     display: flex;
     justify-content: space-around;
     padding: 10px;
+}
+
+.areaDoVoto {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 30%;
+  margin-top: 2%;
+  flex-direction: row;
+}
+
+.formDash {
+  display: flex;
+  justify-content: space-around;
+}
+
+select {
+  margin-top: 10%;
+  height: 20px;
+  margin-left: 5%;
+}
+
+button {
+  height: 26px;
+  margin-top: 10%;
+  margin-left: 5%;
 }
