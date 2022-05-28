@@ -1,26 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>PUBG | ESPORTS</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
-<body>
-    <div class="navbar">
-        <img src="img/pubgLogo.png" class="imgNav">
-        <a href="javascript:;" title="" class="btn">
-            <span class="span1"></span>
-            <span class="span2"></span>
-        </a>
+
+<body onload="validarSessao()">
+
+    <div class="janela">
+        <div class="header-left">
+
+            <div class="hello">
+                <h1>PUBG</h1>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./menu.html">
+                    <h3>Menu</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <a href="./dashboard.html"></a>
+                <h3>Votação</h3>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./publicacoes.html">
+                    <h3>Publicações</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
     </div>
-    <div class="menu">
-        <ul class="menu__list">
-            <li class="menu__list">
-                <a href="index.html" class="menu__link">Logout</a>
-            </li><br>
-        </ul>
+    <div class="dash">
+        <div class="votacaoDash">
+            <div class="graficoUm">
+                <canvas id="grafico1"></canvas>
+            </div>
+            <div class="graficoUm">
+                <canvas id="grafico2"></canvas>
+            </div>
+            <div class="elencos">
+                <div class="separarEmDois">
+                    <img src="img/times/alemanha.png">
+                    <img src="img/times/argentina.jpg">
+                </div>
+                <div class="separarEmDois">
+                    <img src="img/times/australia.jpg">
+                    <img src="img/times/brasil.jpg">
+                </div>
+                <div class="separarEmDois">
+                    <img src="img/times/china.jpg">
+                    <img src="img/times/chineseTaipe.png">
+                </div>
+                <div class="separarEmDois">
+                    <img src="img/times/Eua.jpg">
+                    <img src="img/times/finlandia.png">
+                </div>
+                <div class="separarEmDois">
+                    <img src="img/times/indonesia.png">
+                    <img src="img/times/inglaterra.png">
+                </div>
+                <div class="separarEmDois">
+                    <img src="img/times/japao.jpg">
+                    <img src="img/times/koreia.png">
+                </div>
+                <div class="separarEmDois">
+                    <img src="img/times/tailandia.jpg">
+                    <img src="img/times/turquia.png">
+                </div>
+            </div>
+        </div>
     </div>
+
+
 </body>
-</html>
+
+</html> 
+<script>
+    const labels = [
+      'Miramar',
+      'Erangel',
+      'Sanhok',
+      'Vikendi',
+      'Taego',
+    ];
+
+    const labels2 = [
+      'Brasil',
+      'Canada',
+      'Argentina',
+      'Eua',
+      'Australia',
+      'China',
+      'Finlandia',
+      'Alemanha',
+      'Indonesia',
+      'Japão',
+      'Coreia do sul',
+      'Tailândia',
+      'Turquia',
+      'Inglaterra',
+      'Vietnam',
+      'Nações unidas',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Quantidade de jogadores escolheram esse mapa',
+        backgroundColor: '#3d77ec',
+        borderColor: '#3d77ec',
+        data: [30, 32, 21, 5, 9],
+      }]
+    };
+    
+    const data2 = {
+      labels: labels2,
+      datasets: [{
+        label: 'Quantidade de votos',
+        backgroundColor: '#3d77ec',
+        borderColor: '#3d77ec',
+        data: [43, 20, 6, 50, 12, 32, 4, 14, 7, 28, 50, 2, 6, 17, 22, 4],
+      }]
+    };
+  
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {}
+    };
+
+    const config2 = {
+      type: 'bar',
+      data: data2,
+      options: {}
+    };
+  </script>
+
+<script>
+    const grafico1 = new Chart(
+      document.getElementById('grafico1'),
+      config
+    );
+
+    const grafico2 = new Chart(
+      document.getElementById('grafico2'),
+      config2
+    );
+</script>

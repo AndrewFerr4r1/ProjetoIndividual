@@ -99,7 +99,12 @@ function entrar() {
 
         if (resposta.ok) {
             console.log(resposta);
-
+            const usuario = {
+                email: emailVar,
+                nome:  senhaVar,
+            };
+            sessionStorage.EMAIL_USUARIO = usuario.email;
+            sessionStorage.NOME_USUARIO = usuario.nome;
             inputEmail.value = ''
             inputSenha.value = ''
             Swal.fire({
@@ -110,7 +115,7 @@ function entrar() {
                 timer: 5000
             })
             setTimeout(() => {
-                window.location = "index.html";
+                window.location = "dashboard.html";
         }   ,"2000")
 
         } else {

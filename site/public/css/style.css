@@ -125,28 +125,3 @@ body {
   margin-bottom: 100px;
   cursor: pointer;
 }
-
-.graficoUm {
-    margin-top: 2%;
-    margin-left: 35%;
-    width: 700px;
-    border-radius: 6px;
-    background-color: #a7a7a7;
-    padding: 4px;
-}
-
-img {
-    height: 300px;
-    width: 300px;
-}
-
-.elencos {
-    margin-top: 10%;
-    margin-left: 32%;
-}
-
-.separarEmDois {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-}
