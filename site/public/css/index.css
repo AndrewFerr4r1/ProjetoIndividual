@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    min-height: 100vh;
+    font-family: monospace;
+    position: relative; 
+}
+
+.navbar {
+    background-color: #f6b061;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vw;
+    width: 100%;
+    border-radius: 6px;
+    border-bottom: 2px solid black;
+}
+
+h1 {
+    margin-right: 5%;
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+}
+
+.imgNav {
+    height: 40px;
+}
+
+.btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 2;
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+.btn span{
+    width: 20px;
+    height: 2px;
+    background: #000;
+    display: flex;
+    position: absolute;
+    transition: .3s;
+}
+
+.btn .span1:nth-child(1) {
+    top: 20%;
+}
+
+.btn span:nth-child(2) {
+    top: 80%;
+}
+
+.btn.is-active span {
+    background: #fff;
+} 
+
+.btn.is-active span:nth-child(1) {
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.btn.is-active span:nth-child(2) {
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+.menu {
+    background: #171717;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 100px;
+    z-index: 1;
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu__list {
+    list-style-type: none;
+}
+
+.menu__item:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.menu__link {
+    position: relative;
+    display: inline-flex;
+    font-weight: bold;
+    font-size: 48px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu__link:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 5px;
+    display: inline-flex;
+    background: #c5e600;
+    transition: .3s;
+}
+
+.menu__link:hover:after {
+    width: 100%;
+}
+
+.container {
+    justify-content: flex-start;
+    height: 2000px;
+}
+
+.divImgFundo {
+    height: 100px;
+}
+
+.imgFundo {
+    height: 700px;
+    width: 100%;
+}
+
+
+.textoJogoSurgiu {
+    background-color: rgb(224, 217, 217);
+    height: 500px;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 6px;
+    margin-top: 500px;
+    line-height: 20px;
+    text-align: justify; 
+    align-items: flex-start;
+}
+
+.h1SobreoJogo {
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.pSobreoJogo {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    margin-left: 8%;
+    margin-top: 17%;
+    font-size: 20px;
+    font-family: 'arial';
+}
+
+.sobreImg {
+    margin-top: 10%;
+    margin-left: 30%;
+    height: 350px;
+    border-radius: 6px;
+}
+
+.divData {
+    background-color: white;
+    height: 800px;
+    border-radius: 6px;
+}
+
+.textoDataLancamento {
+    background-color: white;
+}
+
+.h1DataLancamento {
+    position: absolute;
+    margin-left: 40%;
+}
+
+.dataLancamentoPcImg {
+    position: absolute;
+    height: 200px;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.pDataLancamentoPcImg {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 10%;
+    width: 300px;
+}
+
+.pDataLancamentoPc {
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 10%;
+    font-size: 20px;
+    width: 40%;
+}
+
+.DataLancamentoImgXbox {
+    position: absolute;
+    height: 350px;
+    margin-top: 40%;
+    margin-left: 78%;
+    border-radius: 10px;
+    border: 2px solid green;
+}
+
+.pDataLancamentoXbox {
+    background-color: #f6b061;
+    position: absolute;
+    margin-top: 40%;
+    margin-left: 60%;
+    width: 150px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 2px solid green;
+}
+
+.DataLancamentoImgPlay {
+    position: absolute;
+    height: 330px;
+    margin-top: 40%;
+    margin-left: 2%;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+
+.pDataLancamentoPS {
+    background-color: #f6b061;
+    position: absolute;
+    margin-top: 57%;
+    margin-left: 27%;
+    width: 150px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 2px solid blue;
+}
+
+.esports {
+    background-color: rgb(224, 217, 217);
+    margin-top: 10%;
+}
+
+.h1Esports {
+   display: flex;
+   justify-content: center;
+}
+
+.fundoEsports {
+    width: 100%;
+    height: 400px;
+}
+
+.pSobreEsports {
+    width: 60%;
+    margin-left: 20%;
+    font-size: 19px;
+}
+
+.h1Campeao {
+    display: flex;
+    justify-content: center;
+}
+
+.imagemDosCampeos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.Soniqs {
+    height: 250px;
+    cursor: pointer;
+    width: 400px;
+}
+
+.Happy {
+    height: 250px;
+    cursor: pointer;
+    width: 400px;
+}
+
+.textCampeos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.votacao {
+    display: flex;
+    margin-top: 10%;
+    justify-content: space-around;
+    height: 200px;
+}
+
+button {
+    height: 50px;
+    width: 150px;
+    background-color: #969696;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f6b061;
+    border: 2px solid #000;
+    color: black;
+    transition: all 0.5s ease-in;
+    transition-delay: 0.05s;
+}
+
+footer {
+    background-color: #f6b061;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/menu.css">
+    <script src="js/menu.js"></script>
+    <title>Perfil</title>
+</head>
+<body onload="mostrarPerfil(), mudarMapa()">
+    <div class="janela">
+        <div class="header-left">
+
+            <div class="hello">
+                <h1>PUBG</h1>
+            </div>
+
+            <div class="btn-nav">
+                <a href="./menu.html">
+                    <h3>Perfil</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="dashboard.html">
+                <h3>Votação</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./publicacoes.html">
+                    <h3>Publicações</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+        </div>
+    </div>
+    <div id="direita">
+        <div class="imgPrincipal" id="mapaPrincipal">
+            <img src="img/mapas/erangel.jpg">
+        </div>
+        <div id="listarPerfil">
+            <div class="perfil">
+                <h1>Nome:</h1>
+                <h1>Email:</h1>
+                <h1>Voto:</h1>
+                <h1>Mapa preferido:</h1>
+            </div>
+        </div>
+        <div class="parteDoMapa">
+            <h1>Qual seu mapa favorito?</h1>
+            <select id="selectMapaFavorito">
+                <option value="1">Erangel</option>
+                <option value="2">Miramar</option>
+                <option value="3">Sanhok</option>
+                <option value="4">Vikendi</option>
+                <option value="5">Taego</option>
+            </select>
+            <button onclick="escolhaDeMapa(), mudarMapa()">Escolher</button>
+        </div>
+    </div>
+</body>
+</html>
