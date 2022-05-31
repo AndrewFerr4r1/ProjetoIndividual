@@ -99,24 +99,18 @@ function entrar() {
 
             if (resposta.ok) {
                 console.log(resposta);
-                resposta.json().then(function (resposta) {
-                    console.log("ESTOU NO THEN DO entrar()!")
 
-                    if (resposta.ok) {
-                        console.log(resposta);
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
 
-                        resposta.json().then(json => {
-                            console.log(json);
-                            console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.MAPA_USUARIO = json.fkMapa;
+                    sessionStorage.VOTO_USUARIO = json.fkTimePubg;
 
-                            sessionStorage.EMAIL_USUARIO = json.email;
-                            sessionStorage.NOME_USUARIO = json.nome;
-                            sessionStorage.ID_USUARIO = json.id;
-                            sessionStorage.MAPA_USUARIO = json.fkMapa;
-
-                            inputEmail.value = ''
-                            inputSenha.value = ''
-                            Swal.fire({
+                    Swal.fire({
                                 position: 'center',
                                 icon: 'success',
                                 title: 'Logado com sucesso!',
@@ -126,7 +120,8 @@ function entrar() {
                             setTimeout(() => {
                                 window.location = "dashboard.html";
                             }, "2000")// apenas para exibir o loading
-                        });
+
+                });
                     } else {
 
                         console.log("Houve um erro ao tentar realizar o login!");
@@ -148,7 +143,4 @@ function entrar() {
 
                 return false;
             }   
-        })
-    }
-
 }

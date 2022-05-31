@@ -3,19 +3,20 @@ var listaMapa = [0, 1, 2, 3, 4, 5]
 voto = sessionStorage.VOTO_USUARIO
 email = sessionStorage.EMAIL_USUARIO
 mapa = sessionStorage.MAPA_USUARIO
+nome = sessionStorage.NOME_USUARIO
 
 function mostrarPerfil() {
 
     if(voto != undefined) {
         listarPerfil.innerHTML = `<div class="perfil">
-                                    <h1>Nome:</h1>
+                                    <h1>Nome: ${nome}</h1>
                                     <h1>Email: ${email}</h1>
                                     <h1>Voto: ${voto}</h1>
                                     <h1>Mapa preferido:</h1>
                               </div>`
     }if(mapa != undefined) {
         listarPerfil.innerHTML = `<div class="perfil">
-                                        <h1>Nome:</h1>
+                                        <h1>Nome: ${nome}</h1>
                                         <h1>Email: ${email}</h1>
                                         <h1>Voto: ${voto}</h1>
                                         <h1>Mapa preferido: ${mapa}</h1>
@@ -26,23 +27,6 @@ function mostrarPerfil() {
 }
 
 function escolhaDeMapa() {
-    // var mapaEscolhido = document.getElementById('selectMapaFavorito').value
-
-    // const usuario = {
-    //     mapa: mapaEscolhido
-    // };
-    // sessionStorage.MAPA_USUARIO = usuario.mapa;
-
-    // mapa = sessionStorage.MAPA_USUARIO
- 
-    // if(mapa != undefined) {
-    //     listarPerfil.innerHTML = `<div class="perfil">
-    //                                 <h1>Nome:</h1>
-    //                                 <h1>Email: ${email}</h1>
-    //                                 <h1>Voto: ${voto}</h1>
-    //                                 <h1>Mapa preferido: ${mapa}</h1>
-    //                           </div>`
-    // }
 
     var mapaVar = document.getElementById('selectMapaFavorito').value
     console.log(mapaVar)
