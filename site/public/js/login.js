@@ -51,92 +51,104 @@ function entrar() {
     var emailVar = document.getElementById('inputEmail').value
     var senhaVar = document.getElementById('inputSenha').value
 
-        console.log(emailVar)
-        console.log(senhaVar)
+    console.log(emailVar)
+    console.log(senhaVar)
 
-    if(emailVar == '') {
+    if (emailVar == '') {
         spanEmail.innerHTML = 'Não deixe o campo em branco'
         inputEmail.style.borderBottom = '2px solid red'
 
         inputSenha.style.borderBottom = '2px solid black'
         spanSenha.innerHTML = ''
-    }else if (senhaVar == '') {
+    } else if (senhaVar == '') {
         spanSenha.innerHTML = 'Não deixe o campo em branco'
         inputSenha.style.borderBottom = '2px solid red'
 
         inputEmail.style.borderBottom = '2px solid black'
         spanEmail.innerHTML = ''
-    }else if (emailVar.indexOf('@') < 5 || emailVar.length < 7) {
+    } else if (emailVar.indexOf('@') < 5 || emailVar.length < 7) {
         spanEmail.innerHTML = 'Insira um email Válido'
         inputEmail.style.borderBottom = '2px solid red'
 
         inputSenha.style.borderBottom = '2px solid black'
         spanSenha.innerHTML = ''
-    }else if (senhaVar.length <= 5) {
+    } else if (senhaVar.length <= 5) {
         spanSenha.innerHTML = 'Insira uma senha com mais de 5 caracteres'
         spanEmail, innerHTML = 'uau'
         inputSenha.style.borderBottom = '2px solid red'
 
         inputEmail.style.borderBottom = '2px solid black'
         spanEmail.innerHTML = ''
-    }else {
-    
+    } else {
 
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
 
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
-        if (resposta.ok) {
-            console.log(resposta);
-            const usuario = {
-                email: emailVar,
-                nome:  senhaVar,
-            };
-            sessionStorage.EMAIL_USUARIO = usuario.email;
-            sessionStorage.NOME_USUARIO = usuario.nome;
-            inputEmail.value = ''
-            inputSenha.value = ''
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Logado com sucesso!',
-                showConfirmButton: false,
-                timer: 5000
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
             })
-            setTimeout(() => {
-                window.location = "dashboard.html";
-        }   ,"2000")
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-        } else {
+            if (resposta.ok) {
+                console.log(resposta);
+                resposta.json().then(function (resposta) {
+                    console.log("ESTOU NO THEN DO entrar()!")
 
-            console.log("Houve um erro ao tentar realizar o login!");
-            console.log(resposta);
+                    if (resposta.ok) {
+                        console.log(resposta);
 
-            inputEmail.value = ''
-            inputSenha.value = ''
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Senha ou email errado(s)',
-              })
-            
-        }
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
 
-    }).catch(function (erro) {
-        console.log(erro);
-    })
+                            sessionStorage.EMAIL_USUARIO = json.email;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.ID_USUARIO = json.id;
+                            sessionStorage.MAPA_USUARIO = json.fkMapa;
 
-    return false;
-    }   
+                            inputEmail.value = ''
+                            inputSenha.value = ''
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Logado com sucesso!',
+                                showConfirmButton: false,
+                                timer: 5000
+                            })
+                            setTimeout(() => {
+                                window.location = "dashboard.html";
+                            }, "2000")// apenas para exibir o loading
+                        });
+                    } else {
+
+                        console.log("Houve um erro ao tentar realizar o login!");
+                        console.log(resposta);
+
+                        inputEmail.value = ''
+                        inputSenha.value = ''
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Senha ou email errado(s)',
+                        })
+
+                    }
+
+                }).catch(function (erro) {
+                    console.log(erro);
+                })
+
+                return false;
+            }   
+        })
+    }
+
 }
