@@ -31,8 +31,18 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
+function puxarVoto() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
+
+    var instrucao = `select t.nomeTime as time, count(u.fkTimePubg) as voto from usuario u join timePubg t
+    on u.fkTimePubg = t.idTimepubg group by t.nomeTime;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     // listar,
+    puxarVoto
 };

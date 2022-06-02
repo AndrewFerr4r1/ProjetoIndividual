@@ -9,7 +9,7 @@
     <title>PUBG | ESPORTS</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <script src="js/dashboard.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
 
 </head>
 
@@ -123,74 +123,187 @@
 
 </html> 
 <script>
-    const labels = [
-      'Miramar',
-      'Erangel',
-      'Sanhok',
-      'Vikendi',
-      'Taego',
-    ];
 
-    const labels2 = [
-      'Brasil',
-      'Canada',
-      'Argentina',
-      'Eua',
-      'Australia',
-      'China',
-      'Finlandia',
-      'Alemanha',
-      'Indonesia',
-      'Japão',
-      'Coreia do sul',
-      'Tailândia',
-      'Turquia',
-      'Inglaterra',
-      'Vietnam',
-      'Nações unidas',
-    ];
-  
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'Quantidade de jogadores escolheram esse mapa',
-        backgroundColor: '#3d77ec',
-        borderColor: '#3d77ec',
-        data: [30, 32, 21, 5, 9],
-      }]
-    };
+window.onload= obterDadosGrafico()
+
+// function puxarVoto() {
+//     fetch("/usuarios/puxarVoto").then(function (resposta) {
+//         if (resposta.ok) {
     
-    const data2 = {
-      labels: labels2,
-      datasets: [{
-        label: 'Quantidade de votos',
-        backgroundColor: '#3d77ec',
-        borderColor: '#3d77ec',
-        data: [43, 20, 6, 50, 12, 32, 4, 14, 7, 28, 50, 2, 6, 17, 22, 4],
-      }]
-    };
+//             resposta.json().then(function (resposta) {
+//                 console.log("Dados recebidos: ", JSON.stringify(resposta));
+                
+//     plotarGrafico()
+//             });
+//         } else {
+//             throw ('Houve um erro na API!');
+//         }
+//     }).catch(function (resposta) {
+//         console.error(resposta);
+//     });
+// }
+
+function obterDadosGrafico() {
+
+
+    fetch(`/usuarios/puxarVoto`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log("Dados recebidos: ", resposta);
+            resposta.reverse();
+
+            plotarGrafico(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
+  }
+function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Quantidade de votos',
+                    backgroundColor: '#32b9cd8f',
+                    data: []
+                },
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            if (registro.time == "Australia") {
+            dados.datasets[0].data.push(registro.voto);
+        }
+        // dados.labels.data.push(registro.nome);
+    }
+
+        console.log(JSON.stringify(dados));
+
+        var ctx = document.getElementById("grafico1").getContext('2d');
+        window.grafico_linha = Chart.Bar(ctx, {
+            data: dados,
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    }, {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        },
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+    }
+
+
+//     const labels = [
+//       'Miramar',
+//       'Erangel',
+//       'Sanhok',
+//       'Vikendi',
+//       'Taego',
+//     ];
+
+//     const labels2 = [
+//       'Brasil',
+//       'Canada',
+//       'Argentina',
+//       'Eua',
+//       'Australia',
+//       'China',
+//       'Finlandia',
+//       'Alemanha',
+//       'Indonesia',
+//       'Japão',
+//       'Coreia do sul',
+//       'Tailândia',
+//       'Turquia',
+//       'Inglaterra',
+//       'Vietnam',
+//       'Nações unidas',
+//     ];
   
-    const config = {
-      type: 'bar',
-      data: data,
-      options: {}
-    };
+//     const data = {
+//       labels: labels,
+//       datasets: [{
+//         label: 'Quantidade de jogadores escolheram esse mapa',
+//         backgroundColor: '#3d77ec',
+//         borderColor: '#3d77ec',
+//         data: [30, 32, 21, 5, 9],
+//       }]
+//     };
 
-    const config2 = {
-      type: 'bar',
-      data: data2,
-      options: {}
-    };
-  </script>
 
-<script>
-    const grafico1 = new Chart(
-      document.getElementById('grafico1'),
-      config
-    );
+   
+    
+//     const data2 = {
+//       labels: labels2,
+//       datasets: [{
+//         label: 'Quantidade de votos',
+//         backgroundColor: '#3d77ec',
+//         borderColor: '#3d77ec',
+//         data: [43, 20, 6, 50, 12, 32, 4, 14, 7, 28, 50, 2, 6, 17, 22, 4],
+//       }]
+//     };
+  
+//     const config = {
+//       type: 'bar',
+//       data: data,
+//       options: {}
+//     };
 
-    const grafico2 = new Chart(
-      document.getElementById('grafico2'),
-      config2
-    );
-</script>
+//     const config2 = {
+//       type: 'bar',
+//       data: data2,
+//       options: {}
+//     };
+//   </script>
+
+// <script>
+//     const grafico1 = new Chart(
+//       document.getElementById('grafico1'),
+//       config
+//     );
+
+//     const grafico2 = new Chart(
+//       document.getElementById('grafico2'),
+//       config2
+//     );
+// </script>
