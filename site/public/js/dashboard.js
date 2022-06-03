@@ -1,3 +1,6 @@
+var pegandoIdDoUsuario = sessionStorage.ID_USUARIO
+console.log(pegandoIdDoUsuario)
+
 function confirmarVoto() {
     var votoVar = document.getElementById('selectVoto').value
     console.log(votoVar)
@@ -54,11 +57,12 @@ function confirmarVoto() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                votoServer: fkVoto
+                votoServer: fkVoto,
+                idUsuarioServer: pegandoIdDoUsuario
             })
         })
         const usuario = {
-            voto: votoEscolhido
+            voto: votoEscolhido 
         };
         sessionStorage.VOTO_USUARIO = usuario.voto;
     }

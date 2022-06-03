@@ -10,14 +10,17 @@ function testar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var voto = req.body.votoServer;
+    var idUsuario = req.body.idUsuarioServer;
 
     // Faça as validações dos valores
     if (voto == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else {
+        res.status(400).send("Seu voto está undefined!");
+    } else if(idUsuario == undefined) {
+        res.status(400).send("Seu id do usuario está undefined!")
+    }else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        votoModel.cadastrar(voto)
+        votoModel.cadastrar(voto, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
