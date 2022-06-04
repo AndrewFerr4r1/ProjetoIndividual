@@ -37,7 +37,6 @@ body {
   display: flex;
   width: 75%;
   height: fit-content;
-  background-color: #161618;
   position: relative;
   top: 0;
   left: 25%;
@@ -124,102 +123,51 @@ body {
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
-}
+} 
 
-.dash-right .avisos {
-  width: 100%;
-  /* border: 3px solid pink; */
-  color: rgb(216, 216, 216);
-  font-family: "Exo 2", sans-serif;
-}
-
-.dash-right .avisos .container {
+.partePublicacoes {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dash-right .avisos .container .div-form {
-  width: 100%;
-}
-
-.dash-right .avisos .container .div-form #form_postagem {
-  width: 100%;
-}
-
-.dash-right .avisos .div-form label {
-  width: 100%;
-}
-
-.dash-right .avisos .div-form input {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form textarea {
-  width: 100%;
-  /* color: #E6005A; */
-  border: 3px solid #e6005a;
-  background-color: white;
-  border-radius: 5px;
-}
-
-.dash-right .avisos .div-form button {
-  cursor: pointer;
-  font-family: "Exo 2", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-}
-
-.publicacao-btn-editar {
-  cursor: pointer;
-  font-family: "Exo 2", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
-  width: 80px;
-}
-
-.publicacao {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: stretch;
-  flex-direction: column;
   justify-content: center;
-  align-items: stretch;
-  border-bottom: 3px solid #e6005a;
-  padding: 20px;
+  flex-direction: column;
+  border-radius: 20px 20px 20px 1px;
+  margin-top: 30%;
+  padding: 2%;
+  width: 500px;
+  height: 400px;
+  margin-left: 15%;
 }
 
-.publicacao > *:not(:last-child) {
-  padding: 0 0 10px 0;
-}
-
-.div-results {
+.partePublicar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  position: fixed;
+  background-color: #f6b061;
+  border: 2px solid black;
+  padding: 2px;
   width: 100%;
 }
 
-.div-results .feed-container {
-  background-color: #212124;
-  border-radius: 5px;
-  margin-bottom: 80px;
+input {
+  cursor: pointer;
 }
 
-.div-buttons {
-  display: flex;
-  justify-content: flex-end;
+.btPostar {
+    margin-left: 2%;
+    font-size: 15px;
+    height: 25px;
+    width: 100px;
+    border: none;
+    background-color: rgb(81, 81, 214);
+    cursor: pointer;
+    border-radius: 6px;
 }
 
-.div-buttons > * {
-  margin-left: 30px;
+.btPostar:hover {
+    background-color: #31daaf;
+    border: 2px solid #000;
+    color: white;
+    transition: all 0.5s ease-in;
+    transition-delay: 0.05s;
 }

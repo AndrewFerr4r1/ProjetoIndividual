@@ -12,6 +12,7 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var votoRouter = require("./src/routes/voto")
 var mapaRouter = require("./src/routes/mapa")
+var pubRouter = require("./src/routes/pub")
 
 
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/voto", votoRouter);
 app.use("/mapa", mapaRouter);
+app.use("/pub", pubRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n
