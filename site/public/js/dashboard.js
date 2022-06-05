@@ -66,25 +66,11 @@ function confirmarVoto() {
         };
         sessionStorage.VOTO_USUARIO = usuario.voto;
     }
-}
-
-function validarSessao() {
-
-    var email = sessionStorage.EMAIL_USUARIO;
-    console.log(email);
-
-    // var b_usuario = document.getElementById("b_usuario");
-
-    if (email != null) {
-
-        // b_usuario.innerHTML = nome;
-    } else {
-        window.location = "../login.html";
-    }
+    window.location = 'dashboard.html'
 }
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    window.location = "../index.html";
 }
 

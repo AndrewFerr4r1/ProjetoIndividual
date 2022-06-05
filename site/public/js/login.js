@@ -118,7 +118,7 @@ function entrar() {
                                 timer: 5000
                             })
                             setTimeout(() => {
-                                window.location = "dashboard.html";
+                                window.location = "menu.html";
                             }, "2000")// apenas para exibir o loading
 
                 });

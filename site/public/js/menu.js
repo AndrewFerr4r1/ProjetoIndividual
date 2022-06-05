@@ -5,6 +5,14 @@ email = sessionStorage.EMAIL_USUARIO
 mapa = sessionStorage.MAPA_USUARIO
 nome = sessionStorage.NOME_USUARIO
 
+if(mapa == 'null') {
+    mapa = ''
+}
+
+if(voto == 'null') {
+    voto = ''
+}
+
 function mostrarPerfil() {
 
     if(voto != undefined) {
@@ -68,6 +76,7 @@ function escolhaDeMapa() {
         };
         sessionStorage.MAPA_USUARIO = usuario.mapa;
     }
+    window.location = 'menu.html'
 }
 
 function mudarMapa() {
@@ -84,4 +93,41 @@ function mudarMapa() {
     }else {
         mapaPrincipal.innerHTML = `<img src="img/mapas/taego.jpg">`
     }
+}
+
+function calcularPorcentagem() {
+    var partidasVencidas = document.getElementById("inputPartidasVencidas").value
+    var qtdPartidas = document.getElementById("inputPartidasJogadas").value
+
+    resultadoPorcentagemPartidas = (partidasVencidas / qtdPartidas) * 100 
+
+    if(resultadoPorcentagemPartidas >= 50) {
+        spanResultadoCalculo.innerHTML = `<span style="color: green;">você tem ${resultadoPorcentagemPartidas}% de vitória</span>`
+    }else {
+        spanResultadoCalculo.innerHTML = `<span style="color: red;">você tem ${resultadoPorcentagemPartidas}% de vitória</span>`
+    }
+
+    inputPartidasVencidas.value = ''
+    inputPartidasJogadas.value = ''
+    
+}
+
+function validarSessao() {
+
+    var email = sessionStorage.EMAIL_USUARIO;
+    console.log(email);
+
+    // var b_usuario = document.getElementById("b_usuario");
+
+    if (email != null) {
+
+        // b_usuario.innerHTML = nome;
+    } else {
+        window.location = "../login.html";
+    }
+}
+
+function limparSessao() {
+    sessionStorage.clear();
+    window.location = "../index.html";
 }

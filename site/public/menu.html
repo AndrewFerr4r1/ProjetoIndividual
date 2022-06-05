@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,8 @@
     <script src="js/menu.js"></script>
     <title>Perfil</title>
 </head>
-<body onload="mostrarPerfil(), mudarMapa()">
+
+<body onload="mostrarPerfil(), mudarMapa(), validarSessao()">
     <div class="janela">
         <div class="header-left">
 
@@ -24,7 +26,7 @@
 
             <div class="btn-nav-white">
                 <a href="dashboard.html">
-                <h3>Votação</h3>
+                    <h3>Votação</h3>
                 </a>
             </div>
 
@@ -51,17 +53,32 @@
                 <h1>Mapa preferido:</h1>
             </div>
         </div>
-        <div class="parteDoMapa">
-            <h1>Qual seu mapa favorito?</h1>
-            <select id="selectMapaFavorito">
-                <option value="1">Erangel</option>
-                <option value="2">Miramar</option>
-                <option value="3">Sanhok</option>
-                <option value="4">Vikendi</option>
-                <option value="5">Taego</option>
-            </select>
-            <button onclick="escolhaDeMapa(), mudarMapa()">Escolher</button>
+        <div class="parteBaixoPerfil">
+            <div class="parteDoMapa">
+                <h1>Qual seu mapa favorito?</h1>
+                <select id="selectMapaFavorito">
+                    <option value="1">Erangel</option>
+                    <option value="2">Miramar</option>
+                    <option value="3">Sanhok</option>
+                    <option value="4">Vikendi</option>
+                    <option value="5">Taego</option>
+                </select>
+                <button onclick="escolhaDeMapa(), mudarMapa()">Escolher</button>
+            </div>
+            <div class="areaCalculo">
+                <div class="textoCalculo">
+                    <label for="inputPartidasVencidas">Insira o número de partidas vencidas</label><br>
+                    <input type="text" id="inputPartidasVencidas" size="32px">
+                </div>
+                <div class="parteDois">
+                    <label for="inputPartidasJogadas">Insira o número de partidas que você jogou</label><br>
+                    <input type="text" id="inputPartidasJogadas" size="39px">
+                </div>
+                <button onclick="calcularPorcentagem()" class="btCalcular">Calcular</button>
+                <span id="spanResultadoCalculo" class="spanResultadoCalculo"></span>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
