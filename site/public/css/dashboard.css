@@ -135,6 +135,20 @@ body {
     padding: 4px;
 }
 
+.bannerNationsCup {
+  margin-top: 10%;
+  margin-left: 40%;
+  height: 400px;
+  width: 600px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.textoNationsCup {
+  margin-left: 40%;
+  font-size: 20px;
+}
+
 .textoElenco {
   display: flex;
   justify-content: center;
@@ -160,9 +174,12 @@ img {
 .areaDoVoto {
   display: flex;
   justify-content: space-around;
-  margin-left: 30%;
-  margin-top: 2%;
+  margin-left: 25%;
   flex-direction: row;
+  background-color: rgb(182, 174, 174);
+  padding: 4px;
+  border: 2px solid black;
+  height: 100px;
 }
 
 .formDash {
@@ -178,4 +195,22 @@ select {
 button {
   height: 26px;
   margin-top: 3%;
+}
+
+.btVotar {
+  font-size: 15px;
+  height: 30px;
+  width: 100px;
+  border: none;
+  background-color: rgb(81, 81, 214);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.btVotar:hover {
+  background-color: #f6b061;
+  border: 2px solid #000;
+  color: white;
+  transition: all 0.5s ease-in;
+  transition-delay: 0.05s;
 }

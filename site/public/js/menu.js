@@ -4,6 +4,7 @@ voto = sessionStorage.VOTO_USUARIO
 email = sessionStorage.EMAIL_USUARIO
 mapa = sessionStorage.MAPA_USUARIO
 nome = sessionStorage.NOME_USUARIO
+idUsuario = sessionStorage.ID_USUARIO
 
 if(mapa == 'null') {
     mapa = ''
@@ -68,7 +69,8 @@ function escolhaDeMapa() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                mapaServer: fkMapa
+                mapaServer: fkMapa,
+                idUsuarioServer: idUsuario
             })
         })
         const usuario = {
@@ -102,9 +104,13 @@ function calcularPorcentagem() {
     resultadoPorcentagemPartidas = (partidasVencidas / qtdPartidas) * 100 
 
     if(resultadoPorcentagemPartidas >= 50) {
-        spanResultadoCalculo.innerHTML = `<span style="color: green;">você tem ${resultadoPorcentagemPartidas}% de vitória</span>`
+        spanResultadoCalculo.innerHTML = `<span style="background-color: green; padding: 4px; width: 150px; 
+        border: 2px solid black; border-radius: 6px;">
+        você tem ${resultadoPorcentagemPartidas}% de vitória</span>`
     }else {
-        spanResultadoCalculo.innerHTML = `<span style="color: red;">você tem ${resultadoPorcentagemPartidas}% de vitória</span>`
+        spanResultadoCalculo.innerHTML = `<span style="background-color: red; padding: 4px; width: 150px; 
+        border: 2px solid black; border-radius: 6px;">
+        você tem ${resultadoPorcentagemPartidas}% de vitória</span>`
     }
 
     inputPartidasVencidas.value = ''

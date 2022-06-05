@@ -150,7 +150,7 @@ function plotarGrafico2(resposta) {
         labels: ['Taego', 'Vikendi', 'Sanhok', 'Miramar', 'Erangel'],
         datasets: [
             {
-                label: 'Quantidade de votos de cada mapa',
+                label: 'Quantidade de vezes que os mapas foram escolhidos como favoritos',
                 backgroundColor: '#32b9cd8f',
                 data: []
             },
