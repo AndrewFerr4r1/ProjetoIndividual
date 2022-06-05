@@ -189,6 +189,20 @@ h1 {
     margin-top: 4%;
 }
 
+.segundaParte {
+    margin-top: 4%;
+    background-color: #28a7e6;
+    border: 3px solid black;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.textoCampeonatos {
+    font-size: 20px;
+    margin-top: 6%;
+    margin-left: 15%;
+}
+
 .textoUm {
     font-size: 20px;
 }
@@ -228,4 +242,20 @@ h1 {
 .campeaoImg {
     height: 300px;
     margin-left: 38%;
+}
+
+.ultimoCapeonato {
+    font-size: 20px;
+    margin-top: 4%;
+    width: 500px;
+    margin-left: 30%;
+}
+
+footer {
+    background-color: #f6b061;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid black;
 }
